@@ -33,8 +33,11 @@ fetch('/country_data.json')
                 draggable: true
             }).setLngLat([lon, lat]).addTo(map);
 
-            const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-                'Location:'
+            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+                `<b>${data['data'][i][2]}, ${data['data'][i][1]}, ${data['data'][i][0]}</b> <br>
+                Dates operational: ${data['data'][i][4]}
+                <hr> 
+                ${data['data'][i][8]}`
             );
 
             // create the marker

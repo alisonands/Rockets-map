@@ -3,12 +3,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpc29uYW5kcyIsImEiOiJjbWRuOHR3eWYxdWxnMmpxMXd4YnVrNWdiIn0.rOhxxOGM_zRaQLbzV8DXuA';
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    center: [-8, 34], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-    zoom: 2, // starting zoom
+    center: [-100.714, 34.932], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+    zoom: 1.63, // starting zoom
     // style: 'mapbox://styles/alisonands/cmdok8fmv01uy01sa2won8909',
     config: {
         basemap: {
-            lightPreset: "dawn" // dusk, dawn, night, day
+            lightPreset: "night" // dusk, dawn, night, day
         }
     }
 });
@@ -23,10 +23,6 @@ fetch('/country_data.json')
 
             const lat = parseFloat(latStr);
             const lon = parseFloat(lonStr);
-
-            // const el = document.createElement('div');
-            // el.className = 'marker';
-            // new mapboxgl.Marker(el).setLngLat([lon, lat]).addTo(map);
 
             // const marker = new mapboxgl.Marker({
             //     color: "#de59ceff",
@@ -66,14 +62,14 @@ fetch('/country_data.json')
 
             // Create a circular marker using a div
             const el = document.createElement('div');
-            el.style.width = '10px';
-            el.style.height = '10px';
-            el.style.borderRadius = '50%';
-            el.style.backgroundColor = 'rgba(107, 102, 201, 0.6)';
-            // el.style.opacity = 0.5
-            el.style.border = '1px solid rgba(1, 1, 1, 0.5)';
-            // el.style.boxShadow = '0 0 5px #000';
-            el.style.cursor = 'pointer';
+            el.className = 'marker'
+            // el.style.width = '13px';
+            // el.style.height = '13px';
+            // el.style.borderRadius = '50%';
+            // el.style.backgroundColor = 'rgba(237, 239, 221, 0.89)';
+            // el.style.border = '1px solid rgba(0, 0, 0, 1)';
+            // el.style.boxShadow = '1 1 10px #rgba(9, 9, 9, 1)';
+            // el.style.cursor = 'pointer';
 
             // Create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -89,8 +85,5 @@ fetch('/country_data.json')
                 .setLngLat([lon, lat])
                 .setPopup(popup)
                 .addTo(map);
-
-
-
         }
     })

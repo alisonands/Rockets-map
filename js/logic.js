@@ -13,7 +13,7 @@ const map = new mapboxgl.Map({
     }
 });
 
-fetch('/country_data.json')
+fetch('/data/country_data.json')
     .then(res => res.json())
     .then(data => {
         for (let i = 0; i < data['data'].length; i++) {

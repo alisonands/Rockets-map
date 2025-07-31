@@ -78,7 +78,8 @@ fetch('/country_data.json')
             // Create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
                 `<b>${data['data'][i][2]}, ${data['data'][i][1]}, ${data['data'][i][0]}</b> <br>
-    Dates operational: ${data['data'][i][4]}
+    Dates operational: ${data['data'][i][4]}<br>
+    Additional links: ${data['data'][i][9]}
     <hr> 
     ${data['data'][i][8]}`
             );
